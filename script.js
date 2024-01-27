@@ -6,24 +6,51 @@ function toggleMenu() {
     icon.classList.toggle("open");
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-    const toggleSwitch = document.getElementById('dark-mode-toggle');
-    const body = document.body;
+// Dark-Light Mode
 
-    // Check if a dark mode preference is stored
-    if (localStorage.getItem('darkMode') == 'on') {
-        body.classList.add('dark-mode');
-        toggleSwitch.checked = true;
+const btn = document.getElementById("modeToggle");
+const btn2 = document.getElementById("modeToggle2");
+// Target all objects that use the class .icon
+const themeIcons = document.querySelectorAll(".icon")
+const currentTheme = localStorage.getItem("theme");
+
+if (currentTheme === "dark") {
+    setDarkMode();
+}
+
+btn.addEventListener("click", function (){
+    setTheme();
+});
+
+btn2.addEventListener("click", function () {
+    setTheme();
+});
+
+function setTheme() {
+    // one = is setting something, three === is asking a question. 
+    let currentTheme = document.body.getAttribute("theme");
+
+    if (currentTheme === "dark") {
+        setLightMode();
+    } else {
+        setDarkMode();
     }
+}
 
-    // Listen for a change on the toggle switch
-    toggleSwitch.addEventListener('change', function () {
-        if (this.checked) {
-            body.classList.add('dark-mode');
-            localStorage.setItem('darkMode', 'on');
-        } else {
-            body.classList.remove('dark-mode');
-            localStorage.setItem('darkMode', 'off');
-        }
+function setDarkMode() {
+    document.body.setAttribute("theme", "dark");
+    localStorage.setItem("theme", "dark");
+
+    themeIcons.forEach((icon) => {
+        icon.src = icon.getAttribute("src-dark");
     });
-})
+}
+
+function setLightMode() {
+    document.body.removeAttribute("theme");
+    localStorage.setItem("theme", "light");
+
+    themeIcons.forEach((icon) => {
+        icon.src = icon.getAttribute("src-light");
+    });
+}
