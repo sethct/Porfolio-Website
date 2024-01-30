@@ -104,3 +104,13 @@
         margin-right: 75px;
     }
 }
+
+@media screen and (max-width:970px) {
+    .content{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        margin: 50px auto;
+    }
+    /* additional cards */
+}
