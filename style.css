@@ -106,7 +106,7 @@ a,
     margin-left: 10px;
     margin-right: 10px;
     background: var(--background-color);
-    box-shadow: 0 1rem 2rem rgba(0,0,0,20%);
+    box-shadow: 0 1rem 2rem rgba(0,0,0,0.2);
 }
 
 .pricing-title {
@@ -181,7 +181,7 @@ a,
 }
 
 #services li {
-    margin-top: 10 px;
+    margin-top: 10px;
 }
 
 #services li::before{
@@ -198,10 +198,6 @@ a,
 }
 
 .pricing-button {
-    margin: 0 auto 30px;
- }
-
-.pricing-button {
     height: 40px;
     width: 250px;
     font-size: 0.7em;
@@ -213,7 +209,7 @@ a,
     background: transparent;
 }
 
-pricing-button:hover {
+.pricing-button:hover {
     color: var(--icon-background);
     transition: 0.5s;
     border: none;
